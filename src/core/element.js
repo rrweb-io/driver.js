@@ -154,7 +154,7 @@ export default class Element {
     this.removeHighlightClasses();
 
     // If there was any animation in progress, cancel that
-    this.window.clearTimeout(this.animationTimeout);
+    window.clearTimeout(this.animationTimeout);
 
     if (this.options.onDeselected) {
       this.options.onDeselected(this);
@@ -358,7 +358,7 @@ export default class Element {
     }
 
     // @todo remove timeout and handle with CSS
-    this.animationTimeout = this.window.setTimeout(() => {
+    this.animationTimeout = window.setTimeout(() => {
       this.popover.show(showAtPosition);
     }, showAfterMs);
   }

@@ -1,6 +1,6 @@
 {
   "name": "driver.js",
-  "version": "0.9.7",
+  "version": "0.9.7-beta.1",
   "description": "A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across the page",
   "main": "dist/driver.min.js",
   "types": "types/index.d.ts",
@@ -8,6 +8,7 @@
     "start": "node server.js",
     "build-demo": "NODE_ENV=production webpack --config config/webpack.config.demo.js",
     "build": "webpack --config config/webpack.config.prod.js",
+    "watch": "webpack --config config/webpack.config.prod.js --watch",
     "deploy-demo": "NODE_DEBUG=gh-pages gh-pages -d dist/demo"
   },
   "bugs": {

@@ -45,14 +45,14 @@ export default class Driver {
       ...options,
     };
 
-    this.document = document;
-    this.window = window;
+    this.document = this.options.document || this.document;
+    this.window = this.options.window || window;
     this.isActivated = false;
     this.steps = [];                    // steps to be presented if any
     this.currentStep = 0;               // index for the currently highlighted step
     this.currentMovePrevented = false;  // If the current move was prevented
 
-    this.overlay = new Overlay(this.options, window, document);
+    this.overlay = new Overlay(this.options, this.window, this.document);
 
     this.onResize = this.onResize.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
@@ -95,7 +95,7 @@ export default class Driver {
     // Binding both touch and click results in popup getting shown and then immediately get hidden.
     // Adding the check to not bind the click event if the touch is supported i.e. on mobile devices
     // Issue: https://github.com/kamranahmedse/driver.js/issues/150
-    if (!('ontouchstart' in document.documentElement)) {
+    if (!('ontouchstart' in this.document.documentElement)) {
       this.window.addEventListener('click', this.onClick, false);
     }
 

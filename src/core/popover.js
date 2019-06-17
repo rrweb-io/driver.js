@@ -56,7 +56,7 @@ export default class Popover extends Element {
     }
 
     popover = createNodeFromString(POPOVER_HTML(this.options.className));
-    document.body.appendChild(popover);
+    this.document.body.appendChild(popover);
 
     this.node = popover;
     this.tipNode = popover.querySelector(`.${CLASS_POPOVER_TIP}`);

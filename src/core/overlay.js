@@ -1,4 +1,4 @@
-import { ANIMATION_DURATION_MS, ID_OVERLAY, OVERLAY_HTML } from '../common/constants';
+import { ID_OVERLAY, OVERLAY_HTML, ANIMATION_DURATION_MS } from '../common/constants';
 import { createNodeFromString } from '../common/utils';
 
 /**
@@ -32,7 +32,7 @@ export default class Overlay {
     let pageOverlay = this.document.getElementById(ID_OVERLAY);
     if (!pageOverlay) {
       pageOverlay = createNodeFromString(OVERLAY_HTML);
-      document.body.appendChild(pageOverlay);
+      this.document.body.appendChild(pageOverlay);
     }
 
     this.node = pageOverlay;
@@ -69,7 +69,7 @@ export default class Overlay {
 
     // There might be hide timer from last time
     // which might be getting triggered
-    this.window.clearTimeout(this.hideTimer);
+    window.clearTimeout(this.hideTimer);
 
     // Trigger the hook for highlight started
     element.onHighlightStarted();
@@ -157,11 +157,12 @@ export default class Overlay {
     }
 
     // Clear any existing timers and remove node
-    this.window.clearTimeout(this.hideTimer);
+    window.clearTimeout(this.hideTimer);
 
     if (this.options.animate && !immediate) {
       this.node.style.opacity = '0';
-      this.hideTimer = this.window.setTimeout(this.removeNode, ANIMATION_DURATION_MS);
+      this.removeNode();
+      this.hideTimer = window.setTimeout(this.removeNode, ANIMATION_DURATION_MS);
     } else {
       this.removeNode();
     }

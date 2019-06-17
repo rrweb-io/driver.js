@@ -28,7 +28,7 @@ export default class Stage extends Element {
     let stage = this.document.getElementById(ID_STAGE);
     if (!stage) {
       stage = createNodeFromString(STAGE_HTML);
-      document.body.appendChild(stage);
+      this.document.body.appendChild(stage);
     }
 
     this.node = stage;
