@@ -737,6 +737,8 @@ declare module 'driver.js' {
     }
 
     interface DriverOptions {
+      window?: Window;
+      document?: Document;
       /**
        * Whether to animate while transitioning from one highlighted
        * element to another
