@@ -29,7 +29,7 @@ declare module 'driver.js' {
     /**
      * Refers to step index that is currently active
      */
-    private currentStep: number;
+    public readonly currentStep: number;
 
     /**
      * Refers to the overlay for the screen
