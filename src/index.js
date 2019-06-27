@@ -45,7 +45,7 @@ export default class Driver {
       ...options,
     };
 
-    this.document = this.options.document || this.document;
+    this.document = this.options.document || document;
     this.window = this.options.window || window;
     this.isActivated = false;
     this.steps = [];                    // steps to be presented if any
